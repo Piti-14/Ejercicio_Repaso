@@ -1,18 +1,17 @@
 # -*- coding: utf-8 -*-
 
-# from odoo import models, fields, api
+from odoo import models, fields, api
 
 
-# class feeljoy(models.Model):
-#     _name = 'feeljoy.feeljoy'
-#     _description = 'feeljoy.feeljoy'
+class cliente(models.Model):
+    _name = 'feeljoy.cliente'
+    _description = 'Cliente'
 
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         for record in self:
-#             record.value2 = float(record.value) / 100
+    foto_perfil = fields.Binary("Foto de perfil")
+    nombre = fields.Char(string="Nombre", required=True, help="Introduce un nombre")
+    apellidos = fields.Char(string="Apellidos", required=True, help="Introduce los apellidos")
+    description = fields.Text(string="Sobre el cliente", required=False, help="Escribe aquí datos de interés del cliente")
+    fecha_nacimiento = fields.Date()
+    mail = fields.Char(string="Email", required=True, help="Introduce el correo electrónico")
+    
+
